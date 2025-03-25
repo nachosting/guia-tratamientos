@@ -396,7 +396,7 @@ function closeModal() {
     hideModal('editModal', 'editModalBackdrop');
 }
 
-// document.getElementById('searchInput').addEventListener('input', displayData);
+document.getElementById('searchInput').addEventListener('input', displayData);
 // document.getElementById('sortBy').addEventListener('change', displayData);
 document.getElementById('groupBy').addEventListener('change', fetchData);
 
