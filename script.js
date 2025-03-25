@@ -174,14 +174,32 @@ function displayData() {
     `).join('');
 }
 
+// function formatEnlaces(enlacesStr) {
+//     try {
+//         const enlaces = JSON.parse(enlacesStr);
+//         return enlaces.map(e => `
+//             <div class="enlace-item">
+//                 <a href="${e.link}" target="_blank" rel="noopener noreferrer">${e.name}</a>
+//             </div>
+//         `).join('');
+//     } catch (e) {
+//         return '';
+//     }
+// }
+
 function formatEnlaces(enlacesStr) {
     try {
         const enlaces = JSON.parse(enlacesStr);
-        return enlaces.map(e => `
+        return enlaces.map(e => {
+            // Ensure the link has a protocol
+            const url = e.link.startsWith('http://') || e.link.startsWith('https://') 
+                ? e.link 
+                : `https://${e.link}`;
+            return `
             <div class="enlace-item">
-                <a href="${e.link}" target="_blank" rel="noopener noreferrer">${e.name}</a>
+                <a href="${url}" target="_blank" rel="noopener noreferrer">${e.name}</a>
             </div>
-        `).join('');
+        `}).join('');
     } catch (e) {
         return '';
     }
