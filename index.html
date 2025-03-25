@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Guía Tratamientos</title>
+    <link rel="icon" href="medsnek.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div id="loginModalBackdrop" class="modal-backdrop"></div>
+    <div id="editModalBackdrop" class="modal-backdrop"></div>
+    <div id="loginModal" class="modal">
+        <h2>Ingrese Contraseña</h2>
+        <input type="password" id="apiKeyInput">
+        <button onclick="submitApiKey()" class="btn btn-primary">Ingresar</button>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loader"></div>
+    </div>
+
+    <!-- <div class="topbar">
+        <h1>Sistema de Gestión</h1>
+        <div>
+            <button onclick="showLoginModal()" class="btn">Cambiar Contraseña</button>
+            <button onclick="fetchData()" class="btn">Recargar Datos</button>
+        </div>
+    </div> -->
+
+    <div class="topbar">
+        <div class="topbar-title">
+            <img src="medsnek.png" alt="MedSnek Logo" class="logo">
+            <h1>Guía Tratamientos</h1>
+        </div>
+        <div>
+            <button onclick="showLoginModal()" class="btn">Cambiar Contraseña</button>
+            <button onclick="fetchData()" class="btn">Recargar Datos</button>
+        </div>
+    </div>
+
+    <div class="search-section">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar patología...">
+            <select id="sortBy" hidden>
+                <option value="date">Ordenar por Fecha</option>
+                <option value="priority">Ordenar por Prioridad</option>
+                <option value="age">Ordenar por Edad</option>
+            </select>
+            <select id="groupBy" hidden>
+                <option value="API_1">API_1</option>
+                <option value="API_2">API_2</option>
+            </select>
+            <button onclick="addNewPerson()" class="btn btn-primary">Agregar Patología</button>
+        </div>
+    </div>
+
+    <div class="data-table">
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>Patología</th>
+                    <th>Medicamentos</th>
+                    <th>Observaciones</th>
+                    <th>Enlaces</th>
+                    <!-- <th>Acciones</th> -->
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <div id="editModal" class="modal">
+        <!-- dynamically populated -->
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
